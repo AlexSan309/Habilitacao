@@ -1,0 +1,66 @@
+using System;
+using System.Globalization;
+using System.Threading;
+using System.IO;
+
+class Program 
+{
+  public static void Main (string[] args) 
+  {
+
+  //Primeira parte do programa 
+    
+    Console.WriteLine("------------------");
+    Console.WriteLine("Qual a sua idade? ");
+    int idade = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("-----------------");  
+    Console.WriteLine("Qual a sua nota? ");
+    float nota = Convert.ToInt32(Console.ReadLine());
+
+    if (idade >= 18 && idade <= 90)
+      {
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine("Voce esta apto a tirar a habilitação");
+
+        if(nota >= 70.0)
+        {
+          Console.WriteLine("---------------------------------------");
+          Console.WriteLine("Voce foi aprovado, sua nota foi " + nota);
+        }
+
+        else
+        {
+          Console.WriteLine("----------------------------------------");
+          Console.WriteLine("Voce foi reprovado, sua nota foi " + nota);
+        }
+      }
+
+       else
+        {
+          Console.WriteLine("Infelizmente, voce não pode tirar habilitação, porque voce no momento não atende os requisitos minimos de idade ");
+        }
+
+      //Segunda parte do programa
+
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Qual o seu ano de nascimento? ");
+              int AnoNascimento = Convert.ToInt32(Console.ReadLine());
+              int AnoAtualidade = DateTime.Now.Year;
+            
+            if((AnoAtualidade - AnoNascimento) >= 18)
+            {
+              Console.WriteLine("-------------------------------------");
+              int AnoPassou = (AnoAtualidade - AnoNascimento) - 18;
+              Console.WriteLine($"Pode ter a habilitação, tem idade de tirar a habilitação a {AnoPassou} ano(s)");
+            }
+
+            else
+            {
+                int Falta = (AnoAtualidade - AnoNascimento) - 18;
+                int myInt = System.Math.Abs(Falta);
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine($"Falta {myInt} ano(s) para tirar a sua habilitação ");
+            }
+  }
+}
